@@ -28,12 +28,12 @@ public class QuickSorter extends Sorter {
         while(i<=j) {
         	//5. make a while loop that increments i while 
         	//   the array element at i is less than pivot
-            while(i<pivot) {
+            while(array[i]<pivot) {
             	i++;
             }
             //6. make a while loop that decrements j while 
         	//   the array element at j is greater than pivot
-            while(j>pivot) {
+            while(array[j]>pivot) {
             	j--;
             }
             //7. if i is less than or equal to j, 
@@ -47,18 +47,19 @@ public class QuickSorter extends Sorter {
             	i++;
             	j--;
             }
+    		display.updateDisplay();
         }
         //8. if low is less than j, call the quickSort method using
         //   low for the low and j for the high
         if(low<j) {
         	quickSort(array, low, j, display);
+        	display.updateDisplay();
         }
         //9. if i is less than high, call the quickSort method using
         //   i for the low and high for the high.
         if(i<high) {
         	quickSort(array, i, high, display);
+        	display.updateDisplay();
         }
-        display.updateDisplay();
 	}
-
 }

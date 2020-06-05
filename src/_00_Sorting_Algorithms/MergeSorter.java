@@ -32,10 +32,8 @@ public class MergeSorter extends Sorter {
             mergeSort(array, middle+1, high, display);
             //6. copy the elements from the array into the temporary array,
             //   but only the elements from low to high inclusive
-            for(int i=0;i<array.length;i++) {
-            	if(low<=array[i]&&array[i]<=high) {
-            		arr[i] = array[i];
-            	}
+            for(int i=low;i<=high;i++) {
+            	arr[i] = array[i];
             }
             //7. create three integers called i, j, and k and
             //   set them equal to low, middle + 1, and low respectively
