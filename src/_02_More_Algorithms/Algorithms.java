@@ -52,14 +52,14 @@ public class Algorithms {
 		double smallest = results.get(0);
 		int ind = 0;
 		while(results.size()>0) {
+			sorted.add(smallest);
+			results.remove(ind);
 			for(int i=0;i<results.size();i++) {
 				if(results.get(i)<smallest) {
 					smallest = results.get(i);
 					ind = i;
 				}
 			}
-			sorted.add(smallest);
-			results.remove(ind);
 		}
 		return sorted;
 	}
