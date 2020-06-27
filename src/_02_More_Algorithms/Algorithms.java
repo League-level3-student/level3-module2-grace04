@@ -48,19 +48,60 @@ public class Algorithms {
 	}
 
 	public static List<Double> sortScores(List<Double> results) {
-		List<Double> sorted = new ArrayList<Double>(results.size());
-		double smallest = results.get(0);
-		int ind = 0;
-		while(results.size()>0) {
-			sorted.add(smallest);
-			results.remove(ind);
-			for(int i=0;i<results.size();i++) {
-				if(results.get(i)<smallest) {
-					smallest = results.get(i);
-					ind = i;
+		List<Double> result = new ArrayList<Double>();
+		for(int i=0;i<results.size();i++) {
+			result.add(results.get(i));
+		}
+		for(int i=1;i<result.size();i++) {
+			for(int j=i;j>0;j--) {
+				if(result.get(j)<result.get(j-1)) {
+					double temp = result.get(j);
+					result.remove(j);
+					result.add(j, result.get(j-1));
+					result.remove(j-1);
+					result.add(j-1, temp);
 				}
 			}
 		}
-		return sorted;
+		return result;
+	}
+	
+	public static List<String> sortDNA(List<String> unsequence){
+		List<String> sequence = new ArrayList<String>();
+		for(int i=0;i<unsequence.size();i++) {
+			sequence.add(unsequence.get(i));
+		}
+		for(int i=1;i<sequence.size();i++) {
+			for(int j=i;j>0;j--) {
+				if(sequence.get(j).length()<sequence.get(j-1).length()) {
+					String temp = sequence.get(j);
+					sequence.remove(j);
+					sequence.add(j, sequence.get(j-1));
+					sequence.remove(j-1);
+					sequence.add(j-1, temp);
+				}
+			}
+		}
+		return sequence;
+	}
+
+	public static List<String> sortWords(List<String> words) {
+		// TODO Auto-generated method stub
+		List<String> word = new ArrayList<String>();
+		for(int i=0;i<words.size();i++) {
+			word.add(words.get(i));
+		}
+		for(int i=1;i<word.size();i++) {
+			for(int j=i;j>0;j--) {
+				if(word.get(j).compareTo(word.get(j-1))<0) {
+					String temp = word.get(j);
+					word.remove(j);
+					word.add(j, word.get(j-1));
+					word.remove(j-1);
+					word.add(j-1, temp);
+				}
+			}
+		}
+		return null;
 	}
 }
