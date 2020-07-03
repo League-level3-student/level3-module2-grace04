@@ -102,6 +102,6 @@ public class Algorithms {
 				}
 			}
 		}
-		return null;
+		return word;
 	}
 }
